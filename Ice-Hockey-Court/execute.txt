@@ -1,0 +1,3 @@
+Rode o Comando
+g++ functions.h HokeyCourtDrow.cpp -o test.exe -lGL -lGLU -lglut -lm
+tenha certeza de ter as dependnecias instaladas
