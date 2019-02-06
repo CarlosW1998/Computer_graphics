@@ -104,6 +104,7 @@ void drowMidPointCircle(int x1, int y1, int r, int quadrant){
     d = 5/4 - r;
 
     drowPoit(x, y, 2);
+    drowPoit(y, x, 2);
     while(y > x){
       if(d < 0){
         d += 2*x+3;
@@ -114,6 +115,7 @@ void drowMidPointCircle(int x1, int y1, int r, int quadrant){
         y--;
       }
       drowPoit(x, y, 2);
+      drowPoit(y, x, 2);
     }
   }
   if(quadrant == 2){
@@ -125,6 +127,7 @@ void drowMidPointCircle(int x1, int y1, int r, int quadrant){
     d = 5/4 - r;
 
     drowPoit(-x, y, 2);
+    drowPoit(-y, x, 2);
     while(y > x){
       if(d < 0){
         d += 2*x+3;
@@ -135,27 +138,7 @@ void drowMidPointCircle(int x1, int y1, int r, int quadrant){
         y--;
       }
       drowPoit(-x, y, 2);
-    }
-  }
-  if(quadrant == 3){
-    int x, y;
-    float d;
-
-    x = 0;
-    y = r;
-    d = 5/4 - r;
-
-    drowPoit(x, -y, 2);
-    while(y > x){
-      if(d < 0){
-        d += 2*x+3;
-        x++;
-      }else{
-        d += 2*(x-y)+5;
-        x++;
-        y--;
-      }
-      drowPoit(x, -y, 2);
+      drowPoit(-y, x, 2);
     }
   }
   if(quadrant == 4){
@@ -166,6 +149,31 @@ void drowMidPointCircle(int x1, int y1, int r, int quadrant){
     y = r;
     d = 5/4 - r;
 
+    drowPoit(x, -y, 2);
+    drowPoit(y, -x, 2);
+
+    while(y > x){
+      if(d < 0){
+        d += 2*x+3;
+        x++;
+      }else{
+        d += 2*(x-y)+5;
+        x++;
+        y--;
+      }
+      drowPoit(x, -y, 2);
+      drowPoit(y, -x, 2);
+    }
+  }
+  if(quadrant == 3){
+    int x, y;
+    float d;
+
+    x = 0;
+    y = r;
+    d = 5/4 - r;
+
+    drowPoit(-y, -x, 2);
     drowPoit(-x, -y, 2);
     while(y > x){
       if(d < 0){
@@ -176,8 +184,13 @@ void drowMidPointCircle(int x1, int y1, int r, int quadrant){
         x++;
         y--;
       }
+      drowPoit(-y, -x, 2);
       drowPoit(-x, -y, 2);
     }
   }
   glPopMatrix();
+}
+void drowFullCircunferenceMidPoint(int x, int y, int r)
+{
+  for(int i = 1; i <= 4; i++) drowMidPointCircle(x, y, r, i);
 }

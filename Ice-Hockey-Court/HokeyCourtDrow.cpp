@@ -61,10 +61,10 @@ void drowHockeycourtmidPoint(int x1, int y1, int x2, int y2){
      drowPoit(x1, i, 2);
    }
    // Bordas do Campo
-   drowCircunferenceSegmentLineEq(x2+radiossegment, y1-radiossegment, radiossegment, 2);
-   drowCircunferenceSegmentLineEq(x1-radiossegment, y1-radiossegment, radiossegment, 1);
-   drowCircunferenceSegmentLineEq(x2+radiossegment, y2+radiossegment, radiossegment, 3);
-   drowCircunferenceSegmentLineEq(x1-radiossegment, y2+radiossegment, radiossegment, 4);
+   drowMidPointCircle(x2+radiossegment, y1-radiossegment, radiossegment, 2);
+   drowMidPointCircle(x1-radiossegment, y1-radiossegment, radiossegment, 1);
+   drowMidPointCircle(x2+radiossegment, y2+radiossegment, radiossegment, 3);
+   drowMidPointCircle(x1-radiossegment, y2+radiossegment, radiossegment, 4);
    drowLineMidPoint(x2+radiossegment, y1, x1-radiossegment, y1);
    drowLineMidPoint(x2+radiossegment, y2, x1-radiossegment, y2);
    // Linhas Do Campo
@@ -74,16 +74,16 @@ void drowHockeycourtmidPoint(int x1, int y1, int x2, int y2){
    drowLineMidPoint(x2, middley + (y1-middley)*(0.3), x1, middley + (y1-middley)*(0.3));
    drowLineMidPoint(x2, middley - (y1-middley)*(0.3), x1, middley - (y1-middley)*(0.3));
    //CircunferenciasDoCampo
-   // drowMidPointCircle(middlex + (x1-middlex)*0.6, middley - (y1-middley)*(0.6), radiossegment+radiossegment*0.3,);
-   // drowMidPointCircle(middlex - (x1-middlex)*0.6, middley - (y1-middley)*(0.6), radiossegment+radiossegment*0.3);
-   // drowMidPointCircle(middlex - (x1-middlex)*0.6, middley + (y1-middley)*(0.6), radiossegment+radiossegment*0.3);
-   // drowMidPointCircle(middlex + (x1-middlex)*0.6, middley + (y1-middley)*(0.6), radiossegment+radiossegment*0.3);
+   drowFullCircunferenceMidPoint(middlex + (x1-middlex)*0.6, middley - (y1-middley)*(0.6), radiossegment+radiossegment*0.3);
+   drowFullCircunferenceMidPoint(middlex - (x1-middlex)*0.6, middley - (y1-middley)*(0.6), radiossegment+radiossegment*0.3);
+   drowFullCircunferenceMidPoint(middlex - (x1-middlex)*0.6, middley + (y1-middley)*(0.6), radiossegment+radiossegment*0.3);
+   drowFullCircunferenceMidPoint(middlex + (x1-middlex)*0.6, middley + (y1-middley)*(0.6), radiossegment+radiossegment*0.3);
    // CirculosCentrais
-   // drowMidPointCircle(middlex, middley, radiossegment+radiossegment*0.5);
-   drowCircunferenceSegmentLineEq(middlex, y2+radiossegment, radiossegment, 1);
-   drowCircunferenceSegmentLineEq(middlex, y2+radiossegment, radiossegment, 2);
-   drowCircunferenceSegmentLineEq(middlex, y1-radiossegment, radiossegment, 3);
-   drowCircunferenceSegmentLineEq(middlex, y1-radiossegment, radiossegment, 4);
+   drowFullCircunferenceMidPoint(middlex, middley, radiossegment+radiossegment*0.5);
+   drowMidPointCircle(middlex, y2+radiossegment, radiossegment, 1);
+   drowMidPointCircle(middlex, y2+radiossegment, radiossegment, 2);
+   drowMidPointCircle(middlex, y1-radiossegment, radiossegment, 3);
+   drowMidPointCircle(middlex, y1-radiossegment, radiossegment, 4);
 
 }
 
@@ -92,12 +92,7 @@ void display(void)
  glClear(GL_COLOR_BUFFER_BIT);
  glColor3f(0.0, 1.0, 0.0);
  // drowHockeycourtLineEq(300, 500, 500, 100);
- // drowHockeycourtmidPoint(300, 500, 500, 100);
- drowMidPointCircle(100, 100, 50, 1);
- drowMidPointCircle(100, 100, 50, 2);
- drowMidPointCircle(100, 100, 50, 3);
- drowMidPointCircle(100, 100, 50, 4);
-
+ drowHockeycourtmidPoint(300, 500, 500, 100);
  glFlush();
 }
 
