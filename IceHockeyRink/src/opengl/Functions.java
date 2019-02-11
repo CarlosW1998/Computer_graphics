@@ -211,16 +211,4 @@ public class Functions {
       for(int i = 1; i <= 4; i++) drowMidPointCircle(x, y, r, i, width);
     }
     
-    void stando(ArrayList<Integer> x, ArrayList<Integer> y, int width, String alg){
-        for(int i = 0; i < x.size()-1; i++){
-            if(alg.equals("Eq. da Reta")){
-                drowLineEq(x.get(i), y.get(i), x.get(i+1), y.get(i+1), width);
-//                drowLineEq(x1, y1, x2, y2, width);
-//                drowLineEq(x1, y1, x2, y2, width);
-//                drowLineEq(x1, y1, x2, y2, width);
-            }else if(alg.equals("Bresenham")){
-                //drowLineMidPoint(x1, y1, x2, y2, width);
-            }
-        }
-    }
 }

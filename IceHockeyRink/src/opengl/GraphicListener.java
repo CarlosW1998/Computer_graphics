@@ -35,10 +35,6 @@ public class GraphicListener implements GLEventListener{
     
     public GraphicListener(){
         this.glu = new GLU();
-        xr = new ArrayList<Integer>();
-        yr = new ArrayList<Integer>();
-        xl = new ArrayList<Integer>();
-        yl = new ArrayList<Integer>();
     }
     
     public void setColor(float[] rgb){
@@ -50,28 +46,16 @@ public class GraphicListener implements GLEventListener{
     }
     
     public void setXY(int x, int y){
-        System.out.println(""+ x);
         if(x < 106){
             if(this.xl.size()==2)
                 return;
             this.xl.add(x);
             this.yl.add(y);
-            
-            for(Integer o : this.xl){
-                System.out.print(""+o+" ");
-            }
-            System.out.println("");
-            
         }else if(x > 353){
             if(this.xr.size()==2)
                 return;
             this.xr.add(x);
             this.yr.add(y);
-            
-            for(Integer o : this.xr){
-                System.out.print(""+o+" ");
-            }
-            System.out.println("");
         }
     }
     
@@ -86,19 +70,16 @@ public class GraphicListener implements GLEventListener{
         if(this.xl.size()==2){
             this.ihc.drowLineMidPoint(this.xl.get(0), this.yl.get(0), this.xl.get(1), this.yl.get(0), width);
             this.ihc.drowLineMidPoint(this.xl.get(0), this.yl.get(1), this.xl.get(1), this.yl.get(1), width);
-            for(int i = this.yl.get(0); i > this.yl.get(1); i--)
-            {
+            for(int i = this.yl.get(0); i > this.yl.get(1); i--){
                 this.ihc.drowPoit(this.xl.get(1), i, width);
                 this.ihc.drowPoit(this.xl.get(0), i, width);
             }
         }
         
         if(this.xr.size()==2){
-           // System.out.println("kkk");
             this.ihc.drowLineMidPoint(this.xr.get(0), this.yr.get(0), this.xr.get(1), this.yr.get(0), width);
             this.ihc.drowLineMidPoint(this.xr.get(0), this.yr.get(1), this.xr.get(1), this.yr.get(1), width);
-            for(int i = this.yr.get(0); i > this.yr.get(1); i--)
-            {
+            for(int i = this.yr.get(0); i > this.yr.get(1); i--){
                 this.ihc.drowPoit(this.xr.get(1), i, width);
                 this.ihc.drowPoit(this.xr.get(0), i, width);
             }
@@ -109,19 +90,16 @@ public class GraphicListener implements GLEventListener{
         if(this.xl.size()==2){
             this.ihc.drowLineEq(this.xl.get(0), this.yl.get(0), this.xl.get(1), this.yl.get(0), width);
             this.ihc.drowLineEq(this.xl.get(0), this.yl.get(1), this.xl.get(1), this.yl.get(1), width);
-            for(int i = this.yl.get(0); i > this.yl.get(1); i--)
-            {
+            for(int i = this.yl.get(0); i > this.yl.get(1); i--){
                 this.ihc.drowPoit(this.xl.get(1), i, width);
                 this.ihc.drowPoit(this.xl.get(0), i, width);
             }
         }
         
         if(this.xr.size()==2){
-           // System.out.println("kkk");
             this.ihc.drowLineEq(this.xr.get(0), this.yr.get(0), this.xr.get(1), this.yr.get(0), width);
             this.ihc.drowLineEq(this.xr.get(0), this.yr.get(1), this.xr.get(1), this.yr.get(1), width);
-            for(int i = this.yr.get(0); i > this.yr.get(1); i--)
-            {
+            for(int i = this.yr.get(0); i > this.yr.get(1); i--){
                 this.ihc.drowPoit(this.xr.get(1), i, width);
                 this.ihc.drowPoit(this.xr.get(0), i, width);
             }
@@ -146,6 +124,7 @@ public class GraphicListener implements GLEventListener{
             //cor
             gl.glColor3f(rgb[0], rgb[1], rgb[2]);
             this.ihc = new HockeyCourtDraw(gl);
+            //algoritmos
             if(this.algorithm.equals("Eq. da Reta")){
                 this.ihc.drowHockeycourtLineEq(100, 500, 360, 40, width);
                 drawEq(this.width);

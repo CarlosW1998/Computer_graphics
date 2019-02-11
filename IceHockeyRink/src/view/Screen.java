@@ -221,15 +221,12 @@ public class Screen extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-
         float[] rgb = new float[3];
         try{
             rgb[0] = (Float.parseFloat(jTextField1.getText())/255);
             rgb[1] = (Float.parseFloat(jTextField2.getText())/255);
             rgb[2] = (Float.parseFloat(jTextField3.getText())/255);
             listener.setColor(rgb);
-            //gLCanvas1.addGLEventListener(listener);
-            //gLCanvas1.display();
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Entrada inválida!");
         }
