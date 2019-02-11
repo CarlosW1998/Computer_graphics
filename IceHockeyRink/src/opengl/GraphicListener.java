@@ -90,6 +90,11 @@ public class GraphicListener implements GLEventListener{
         if(this.xl.size()==2){
             this.ihc.drowLineEq(this.xl.get(0), this.yl.get(0), this.xl.get(1), this.yl.get(0), width);
             this.ihc.drowLineEq(this.xl.get(0), this.yl.get(1), this.xl.get(1), this.yl.get(1), width);
+            if(this.yl.get(0)< this.yl.get(1)){
+                this.yl.add(this.yl.get(0));
+                this.yl.remove(0);
+            }
+            
             for(int i = this.yl.get(0); i > this.yl.get(1); i--){
                 this.ihc.drowPoit(this.xl.get(1), i, width);
                 this.ihc.drowPoit(this.xl.get(0), i, width);
@@ -99,6 +104,10 @@ public class GraphicListener implements GLEventListener{
         if(this.xr.size()==2){
             this.ihc.drowLineEq(this.xr.get(0), this.yr.get(0), this.xr.get(1), this.yr.get(0), width);
             this.ihc.drowLineEq(this.xr.get(0), this.yr.get(1), this.xr.get(1), this.yr.get(1), width);
+            if(this.yr.get(0)< this.yr.get(1)){
+                this.yr.add(this.yr.get(0));
+                this.yr.remove(0);
+            }
             for(int i = this.yr.get(0); i > this.yr.get(1); i--){
                 this.ihc.drowPoit(this.xr.get(1), i, width);
                 this.ihc.drowPoit(this.xr.get(0), i, width);

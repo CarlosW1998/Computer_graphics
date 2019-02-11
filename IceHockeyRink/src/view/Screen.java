@@ -147,7 +147,7 @@ public class Screen extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                    .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,7 +228,7 @@ public class Screen extends javax.swing.JFrame {
             rgb[2] = (Float.parseFloat(jTextField3.getText())/255);
             listener.setColor(rgb);
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Entrada inválida!");
+            JOptionPane.showMessageDialog(null, "Entrada invï¿½lida!");
         }
         gLCanvas1.addGLEventListener(listener);
         gLCanvas1.display();
